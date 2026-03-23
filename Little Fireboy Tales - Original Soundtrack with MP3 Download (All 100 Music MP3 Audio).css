@@ -1,0 +1,1128 @@
+/* =====================================================
+   LITTLE FIREBOY TALES - CLASSIC 2000'S CARTOON STYLE
+   ===================================================== */
+
+/* CSS Variables - 2000's Color Palette */
+:root {
+    --primary-red: #FF4444;
+    --primary-orange: #FF8844;
+    --primary-yellow: #FFDD00;
+    --primary-blue: #4488FF;
+    --primary-purple: #AA44FF;
+    --primary-pink: #FF44AA;
+    --primary-green: #44DD44;
+    --primary-cyan: #44DDDD;
+    
+    --fire-orange: #FF6600;
+    --fire-yellow: #FFCC00;
+    --water-blue: #00AAFF;
+    --water-cyan: #00DDFF;
+    
+    --bg-dark: #1a1a2e;
+    --bg-medium: #16213e;
+    --bg-light: #0f3460;
+    --text-light: #ffffff;
+    --text-muted: #aaaacc;
+    
+    --shadow-fire: 0 0 20px rgba(255, 102, 0, 0.5);
+    --shadow-water: 0 0 20px rgba(0, 170, 255, 0.5);
+    --shadow-purple: 0 0 20px rgba(170, 68, 255, 0.5);
+    
+    --border-radius: 15px;
+    --border-radius-lg: 25px;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Comic Neue', cursive, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Stars Background Animation */
+.stars-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(2px 2px at 130px 80px, rgba(255,221,0,0.8), transparent),
+        radial-gradient(1px 1px at 160px 120px, #fff, transparent);
+    background-size: 200px 200px;
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* =====================================================
+   HEADER STYLES
+   ===================================================== */
+
+.main-header {
+    background: linear-gradient(180deg, rgba(26, 26, 46, 0.98) 0%, rgba(22, 33, 62, 0.95) 100%);
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 3px solid var(--fire-orange);
+    box-shadow: 0 4px 30px rgba(255, 102, 0, 0.3);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.fire-logo {
+    font-size: 50px;
+    display: inline-block;
+    animation: fireFlicker 0.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 15px rgba(255, 102, 0, 0.8));
+}
+
+@keyframes fireFlicker {
+    0% { transform: scale(1) rotate(-5deg); }
+    100% { transform: scale(1.1) rotate(5deg); }
+}
+
+.title {
+    font-family: 'Bangers', cursive;
+    font-size: 3.5rem;
+    background: linear-gradient(180deg, var(--fire-yellow) 0%, var(--fire-orange) 50%, var(--primary-red) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.5));
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.3rem;
+    color: var(--water-cyan);
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+    margin-top: 5px;
+}
+
+/* Navigation */
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    font-family: 'Fredoka One', cursive;
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-medium) 100%);
+    border: 2px solid var(--primary-purple);
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: inline-block;
+}
+
+.main-nav a:hover {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-pink) 100%);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-purple);
+}
+
+/* =====================================================
+   HERO SECTION
+   ===================================================== */
+
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    position: relative;
+    background: radial-gradient(ellipse at center, rgba(255, 102, 0, 0.1) 0%, transparent 70%);
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 700px;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--primary-purple) 100%);
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    animation: pulse 2s ease-in-out infinite;
+    box-shadow: 0 5px 20px rgba(255, 68, 170, 0.5);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.hero-title {
+    font-family: 'Bangers', cursive;
+    font-size: 4rem;
+    color: var(--primary-yellow);
+    text-shadow: 4px 4px 0 var(--primary-orange, 0 0 30px rgba(255, 221, 0, 0.5));
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.hero-description {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    font-family: 'Fredoka One', cursive;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--fire-orange) 0%, var(--primary-red) 100%);
+    color: white;
+    box-shadow: 0 5px 20px rgba(255, 102, 0, 0.5);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 102, 0, 0.7);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--water-blue) 0%, var(--primary-purple) 100%);
+    color: white;
+    box-shadow: 0 5px 20px rgba(0, 170, 255, 0.5);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 170, 255, 0.7);
+}
+
+/* Floating Characters */
+.hero-characters {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.character-float {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+#fireboy-img {
+    right: 10%;
+    top: 20%;
+    animation-delay: 0s;
+}
+
+#watergirl-img {
+    left: 10%;
+    top: 25%;
+    animation-delay: 2s;
+    width: 250px;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-30px) rotate(5deg); }
+}
+
+/* Sparkles */
+.sparkles {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    bottom: 20%;
+    font-size: 2rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.sparkles span {
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.sparkles span:nth-child(2) { animation-delay: 0.2s; }
+.sparkles span:nth-child(3) { animation-delay: 0.4s; }
+.sparkles span:nth-child(4) { animation-delay: 0.6s; }
+.sparkles span:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* =====================================================
+   SECTION STYLES
+   ===================================================== */
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-family: 'Bangers', cursive;
+    font-size: 3rem;
+    background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--fire-orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.5));
+}
+
+.underline {
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--fire-orange), var(--primary-purple), var(--water-blue));
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+/* =====================================================
+   ABOUT SECTION
+   ===================================================== */
+
+.about-section {
+    padding: 80px 40px;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 102, 0, 0.05) 50%, transparent 100%);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about-card {
+    background: linear-gradient(135deg, rgba(15, 52, 96, 0.8) 0%, rgba(22, 33, 62, 0.9) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 40px;
+    border: 3px solid var(--primary-purple);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--fire-orange), var(--primary-yellow), var(--fire-orange));
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-purple);
+    border-color: var(--primary-pink);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.about-card h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
+    color: var(--primary-yellow);
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* =====================================================
+   CHARACTERS SECTION
+   ===================================================== */
+
+.characters-section {
+    padding: 80px 40px;
+    background: linear-gradient(180deg, rgba(0, 170, 255, 0.05) 0%, transparent 100%);
+}
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.character-card {
+    background: linear-gradient(145deg, rgba(15, 52, 96, 0.9) 0%, rgba(26, 26, 46, 0.95) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 25px;
+    text-align: center;
+    border: 3px solid var(--primary-orange);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.character-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.character-card:hover::after {
+    opacity: 1;
+}
+
+.character-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-fire);
+    border-color: var(--primary-yellow);
+}
+
+.character-img-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--fire-orange);
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-medium) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.character-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.character-card h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    color: var(--primary-yellow);
+    margin-bottom: 5px;
+}
+
+.character-role {
+    font-size: 0.9rem;
+    color: var(--water-cyan);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.character-desc {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.power-bar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.power-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--fire-orange) 0%, var(--primary-yellow) 100%);
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+.power-fill.water {
+    background: linear-gradient(90deg, var(--water-blue) 0%, var(--water-cyan) 100%);
+}
+
+.power-fill.bubbles {
+    background: linear-gradient(90deg, var(--primary-cyan) 0%, var(--primary-blue) 100%);
+}
+
+.power-fill.buttercup {
+    background: linear-gradient(90deg, var(--primary-green) 0%, #88FF88 100%);
+}
+
+.power-fill.blossom {
+    background: linear-gradient(90deg, var(--primary-pink) 0%, #FFAACC 100%);
+}
+
+.power-fill.spongebob {
+    background: linear-gradient(90deg, var(--primary-yellow) 0%, #FFFF88 100%);
+}
+
+.power-fill.gumball {
+    background: linear-gradient(90deg, var(--primary-blue) 0%, #88CCFF 100%);
+}
+
+.power-fill.darwin {
+    background: linear-gradient(90deg, var(--primary-orange) 0%, #FFAA66 100%);
+}
+
+.power-fill.pibby {
+    background: linear-gradient(90deg, var(--primary-purple) 0%, #CC88FF 100%);
+}
+
+.power-fill.pucca {
+    background: linear-gradient(90deg, var(--primary-pink) 0%, #FF88AA 100%);
+}
+
+.power-fill.garu {
+    background: linear-gradient(90deg, #333 0%, #666 100%);
+}
+
+.power-fill.sonic {
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-cyan) 100%);
+}
+
+.power-fill.tails {
+    background: linear-gradient(90deg, var(--primary-yellow) 0%, var(--primary-orange) 100%);
+}
+
+.power-fill.knuckles {
+    background: linear-gradient(90deg, var(--primary-red) 0%, var(--primary-orange) 100%);
+}
+
+.power-fill.leafy {
+    background: linear-gradient(90deg, var(--primary-green) 0%, #88FF88 100%);
+}
+
+.power-fill.firey {
+    background: linear-gradient(90deg, var(--fire-orange) 0%, var(--primary-yellow) 100%);
+}
+
+/* =====================================================
+   EPISODES SECTION
+   ===================================================== */
+
+.episodes-section {
+    padding: 80px 40px;
+    background: linear-gradient(180deg, rgba(170, 68, 255, 0.05) 0%, transparent 100%);
+}
+
+.episodes-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.season-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.season-tab {
+    font-family: 'Fredoka One', cursive;
+    padding: 12px 30px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-medium) 100%);
+    border: 3px solid var(--primary-purple);
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.season-tab:hover, .season-tab.active {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-pink) 100%);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-purple);
+}
+
+.episodes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.episode-card {
+    background: linear-gradient(145deg, rgba(15, 52, 96, 0.9) 0%, rgba(26, 26, 46, 0.95) 100%);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    border: 2px solid var(--primary-orange);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.episode-card:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-fire);
+    border-color: var(--primary-yellow);
+}
+
+.episode-number {
+    font-family: 'Bangers', cursive;
+    font-size: 1.2rem;
+    color: var(--primary-orange);
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+}
+
+.episode-thumbnail {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--fire-orange) 0%, var(--primary-red) 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.episode-info {
+    flex: 1;
+}
+
+.episode-info h4 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.2rem;
+    color: var(--primary-yellow);
+    margin-bottom: 5px;
+}
+
+.episode-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.duration {
+    font-size: 0.85rem;
+    color: var(--water-cyan);
+}
+
+/* =====================================================
+   SOUNDTRACK SECTION
+   ===================================================== */
+
+.soundtrack-section {
+    padding: 80px 40px;
+    background: linear-gradient(180deg, rgba(255, 102, 0, 0.1) 0%, rgba(0, 170, 255, 0.1) 100%);
+}
+
+.soundtrack-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .soundtrack-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.soundtrack-info {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.album-cover {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.album-art {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, var(--fire-orange) 0%, var(--primary-red) 50%, var(--water-blue) 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    border: 4px solid var(--primary-yellow);
+    box-shadow: 0 10px 40px rgba(255, 102, 0, 0.4);
+}
+
+.album-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: linear-gradient(135deg, var(--primary-pink) 0%, var(--primary-purple) 100%);
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.9rem;
+    transform: rotate(15deg);
+    box-shadow: 0 5px 15px rgba(255, 68, 170, 0.5);
+}
+
+.album-details h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.6rem;
+    color: var(--primary-yellow);
+    margin-bottom: 10px;
+}
+
+.album-details p {
+    margin-bottom: 10px;
+}
+
+.release-info {
+    color: var(--water-cyan);
+    font-style: italic;
+}
+
+.track-preview {
+    background: linear-gradient(145deg, rgba(15, 52, 96, 0.9) 0%, rgba(26, 26, 46, 0.95) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 30px;
+    border: 3px solid var(--primary-purple);
+}
+
+.track-preview h4 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    color: var(--primary-yellow);
+    margin-bottom: 20px;
+}
+
+.track-list-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.track-item:hover {
+    background: rgba(255, 102, 0, 0.2);
+    transform: translateX(5px);
+}
+
+.track-num {
+    font-family: 'Bangers', cursive;
+    font-size: 1.1rem;
+    color: var(--primary-orange);
+    width: 30px;
+}
+
+.track-name {
+    flex: 1;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.track-duration {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* =====================================================
+   GAMES SECTION
+   ===================================================== */
+
+.games-section {
+    padding: 80px 40px;
+    background: linear-gradient(180deg, rgba(68, 221, 68, 0.05) 0%, transparent 100%);
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game-card {
+    background: linear-gradient(145deg, rgba(15, 52, 96, 0.9) 0%, rgba(26, 26, 46, 0.95) 100%);
+    border-radius: var(--border-radius-lg);
+    padding: 35px;
+    text-align: center;
+    border: 3px solid var(--primary-green);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(68, 221, 68, 0.3);
+    border-color: var(--primary-yellow);
+}
+
+.game-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.game-card h3 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.4rem;
+    color: var(--primary-yellow);
+    margin-bottom: 10px;
+}
+
+.game-card p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.game-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-red) 100%);
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-family: 'Fredoka One', cursive;
+    font-size: 0.8rem;
+}
+
+.game-badge.new {
+    background: linear-gradient(135deg, var(--primary-green) 0%, #88FF88 100%);
+    color: var(--bg-dark);
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.main-footer {
+    background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0a14 100%);
+    padding: 60px 40px 30px;
+    position: relative;
+    border-top: 3px solid var(--primary-purple);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 30px;
+}
+
+.footer-logo .fire-icon {
+    font-size: 2.5rem;
+    margin-right: 10px;
+}
+
+.footer-title {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--fire-orange) 0%, var(--primary-yellow) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-family: 'Fredoka One', cursive;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-yellow);
+}
+
+.footer-social {
+    margin-bottom: 30px;
+}
+
+.footer-social span {
+    display: block;
+    margin-bottom: 15px;
+    color: var(--text-muted);
+}
+
+.social-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-medium) 100%);
+    border-radius: 20px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-family: 'Fredoka One', cursive;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-purple);
+}
+
+.social-btn:hover {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-pink) 100%);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+.footer-decor {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 1.5rem;
+    opacity: 0.3;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 768px) {
+    .main-header {
+        padding: 15px 20px;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .main-nav ul {
+        gap: 5px;
+    }
+    
+    .main-nav a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .hero-section {
+        padding: 40px 20px;
+        flex-direction: column;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .character-float {
+        display: none;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .about-section,
+    .characters-section,
+    .episodes-section,
+    .soundtrack-section,
+    .games-section {
+        padding: 50px 20px;
+    }
+    
+    .about-card {
+        padding: 25px;
+    }
+    
+    .characters-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+    }
+    
+    .soundtrack-info {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-links {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .episodes-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================================================
+   ANIMATIONS & EFFECTS
+   ===================================================== */
+
+/* Scroll reveal animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Glow effects */
+.glow-fire {
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.5),
+                0 0 40px rgba(255, 102, 0, 0.3),
+                0 0 60px rgba(255, 102, 0, 0.1);
+}
+
+.glow-water {
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.5),
+                0 0 40px rgba(0, 170, 255, 0.3),
+                0 0 60px rgba(0, 170, 255, 0.1);
+}
+
+/* Selection color */
+::selection {
+    background: var(--primary-purple);
+    color: white;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--fire-orange) 0%, var(--primary-purple) 100%);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--primary-yellow) 0%, var(--fire-orange) 100%);
+}
